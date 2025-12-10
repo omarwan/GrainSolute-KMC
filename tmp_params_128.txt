@@ -1,0 +1,35 @@
+# Simulation Grid Configuration
+grid_size_x=128
+grid_size_y=128
+
+# Simulation Initialization Parameters
+init_type=2
+q_no=50
+q_selected=2
+density=0.2
+
+# Interaction Energy Parameters
+Jgg=1
+Js=0
+Jsg=-1.6
+Jss=0.25
+Jsgs=0.05
+F=0.0
+
+# Simulation Steps Configuration
+n_step=10
+e_step=5
+
+# Temperature Values
+T=0.2
+
+# Diffusion Parameters
+Ed_oo=1.5
+Eg_oo=1
+Ecorr=0.5
+# Output Configuration
+output_dir=tmp_output_128_v2
+
+# Files for structural information, applicable if INIT_TYPE=3
+grain_structure_file=./generated_data/structure_grains.csv
+solute_structure_file=./generated_data/structure_solutes_c0.20.csv

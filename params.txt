@@ -1,0 +1,36 @@
+# Simulation Grid Configuration
+grid_size_x=256
+grid_size_y=1024
+
+# Simulation Initialization Parameters
+init_type=3
+q_no=50
+q_selected=1
+density=0.05
+
+# Interaction Energy Parameters
+Jgg=1.00
+Js=0.00
+Jsg=-0.20
+Jss=0.00
+Jsgs=-0.40
+F=-0.2
+
+# Simulation Steps Configuration
+n_step=100000000
+e_step=1000000
+
+# Temperature Values
+T=0.15
+
+# Diffusion Parameters
+Ed_oo=1.75
+Eg_oo=1.00
+Ecorr=0.5
+
+# Output Configuration
+output_dir=output
+
+# Files for structural information
+grain_structure_file=/Users/omarhussein/Documents/GMU/SelfPinning/PottsOH_Fenwick_v2/generated_data_256x1024/structure_grains.csv
+solute_structure_file=/Users/omarhussein/Documents/GMU/SelfPinning/PottsOH_Fenwick_v2/generated_data_256x1024/structure_solutes_c0.05.csv

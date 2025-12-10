@@ -1,0 +1,453 @@
+Analysis of sampling potts (pid 17676) every 5 milliseconds
+Process:         potts [17676]
+Path:            /Users/USER/Documents/*/potts
+Load Address:    0x1001e4000
+Identifier:      potts
+Version:         0
+Code Type:       ARM64
+Platform:        macOS
+Parent Process:  zsh [11132]
+
+Date/Time:       2025-11-25 22:39:58.951 -0500
+Launch Time:     2025-11-25 22:39:21.277 -0500
+OS Version:      macOS 13.7.2 (22H313)
+Report Version:  7
+Analysis Tool:   /usr/bin/sample
+----
+
+Call graph:
+    16799 Thread_239489   DispatchQueue_1: com.apple.main-thread  (serial)
+      16799 start  (in dyld) + 2412  [0x19fe43fd8]
+        15905 main  (in potts) + 1160  [0x1001e8e24]
+        + 15905 main  (in potts) + 1228,1244,...  [0x1001e8e68,0x1001e8e78,...]
+        393 main  (in potts) + 2044  [0x1001e9198]
+        + 292 save_grid_to_csv  (in potts) + 224  [0x1001e6fc0]
+        + ! 271 fprintf  (in libsystem_c.dylib) + 68  [0x1a0044420]
+        + ! : 175 vfprintf_l  (in libsystem_c.dylib) + 68  [0x1a0044470]
+        + ! : | 69 __vfprintf  (in libsystem_c.dylib) + 5256,156,...  [0x1a0036318,0x1a0034f2c,...]
+        + ! : | 29 __vfprintf  (in libsystem_c.dylib) + 10900  [0x1a0037924]
+        + ! : | + 16 __sfvwrite  (in libsystem_c.dylib) + 32,56,...  [0x1a0037c30,0x1a0037c48,...]
+        + ! : | + 8 __sfvwrite  (in libsystem_c.dylib) + 428  [0x1a0037dbc]
+        + ! : | + ! 8 __sflush  (in libsystem_c.dylib) + 232  [0x1a0042884]
+        + ! : | + !   8 _swrite  (in libsystem_c.dylib) + 108  [0x1a00446dc]
+        + ! : | + !     8 __swrite  (in libsystem_c.dylib) + 24  [0x1a00627ac]
+        + ! : | + !       8 __write_nocancel  (in libsystem_kernel.dylib) + 8  [0x1a015fdc8]
+        + ! : | + 5 __sfvwrite  (in libsystem_c.dylib) + 288  [0x1a0037d30]
+        + ! : | +   4 _platform_memmove  (in libsystem_platform.dylib) + 452,12,...  [0x1a01ca804,0x1a01ca64c,...]
+        + ! : | +   1 DYLD-STUB$$mkdtempat_np  (in libsystem_c.dylib) + 8  [0x1a00aad38]
+        + ! : | 28 __vfprintf  (in libsystem_c.dylib) + 168  [0x1a0034f38]
+        + ! : | + 15 localeconv_l  (in libsystem_c.dylib) + 64  [0x1a0037ab0]
+        + ! : | + ! 13 os_unfair_lock_lock  (in libsystem_platform.dylib) + 4  [0x1a01c7f94]
+        + ! : | + ! 2 DYLD-STUB$$os_unfair_lock_lock  (in libsystem_c.dylib) + 8  [0x1a00aae38]
+        + ! : | + 8 localeconv_l  (in libsystem_c.dylib) + 320  [0x1a0037bb0]
+        + ! : | + ! 8 os_unfair_lock_unlock  (in libsystem_platform.dylib) + 0  [0x1a01c7ac0]
+        + ! : | + 5 localeconv_l  (in libsystem_c.dylib) + 60,268  [0x1a0037aac,0x1a0037b7c]
+        + ! : | 21 __v2printf  (in libsystem_c.dylib) + 204,132,...  [0x1a0034c04,0x1a0034bbc,...]
+        + ! : | 19 __vfprintf  (in libsystem_c.dylib) + 5116  [0x1a003628c]
+        + ! : | + 19 __ultoa  (in libsystem_c.dylib) + 156,232,...  [0x1a00380b4,0x1a0038100,...]
+        + ! : | 5 __vfprintf  (in libsystem_c.dylib) + 11024  [0x1a00379a0]
+        + ! : | + 3 DYLD-STUB$$free  (in libsystem_c.dylib) + 8  [0x1a00aa9e8]
+        + ! : | + 2 free  (in libsystem_malloc.dylib) + 0,152  [0x19ffbdc44,0x19ffbdcdc]
+        + ! : | 3 __sfvwrite  (in libsystem_c.dylib) + 900,892  [0x1a0037f94,0x1a0037f8c]
+        + ! : | 1 __xvprintf  (in libsystem_c.dylib) + 12  [0x1a004449c]
+        + ! : 47 vfprintf_l  (in libsystem_c.dylib) + 80  [0x1a004447c]
+        + ! : | 22 funlockfile  (in libsystem_c.dylib) + 40  [0x1a0042938]
+        + ! : | + 20 _pthread_mutex_firstfit_unlock_slow  (in libsystem_pthread.dylib) + 48,28,...  [0x1a0196c54,0x1a0196c40,...]
+        + ! : | + 1 _pthread_mutex_unlock_init_slow  (in libsystem_pthread.dylib) + 72  [0x1a0196bc8]
+        + ! : | + 1 pthread_mutex_unlock  (in libsystem_pthread.dylib) + 152  [0x1a0196b48]
+        + ! : | 12 funlockfile  (in libsystem_c.dylib) + 44  [0x1a004293c]
+        + ! : | + 10 __error  (in libsystem_kernel.dylib) + 0  [0x1a015c8cc]
+        + ! : | + 2 DYLD-STUB$$__error  (in libsystem_c.dylib) + 8  [0x1a00aa3a8]
+        + ! : | 10 funlockfile  (in libsystem_c.dylib) + 24  [0x1a0042928]
+        + ! : | + 10 __error  (in libsystem_kernel.dylib) + 0  [0x1a015c8cc]
+        + ! : | 2 funlockfile  (in libsystem_c.dylib) + 8  [0x1a0042918]
+        + ! : | 1 _pthread_mutex_unlock_init_slow  (in libsystem_pthread.dylib) + 100  [0x1a0196be4]
+        + ! : 43 vfprintf_l  (in libsystem_c.dylib) + 40  [0x1a0044454]
+        + ! : | 24 flockfile  (in libsystem_c.dylib) + 40  [0x1a0042788]
+        + ! : | + 18 _pthread_mutex_firstfit_lock_slow  (in libsystem_pthread.dylib) + 40,320,...  [0x1a019698c,0x1a0196aa4,...]
+        + ! : | + 3 _pthread_mutex_lock_init_slow  (in libsystem_pthread.dylib) + 76,84,...  [0x1a01966a0,0x1a01966a8,...]
+        + ! : | + 3 pthread_mutex_lock  (in libsystem_pthread.dylib) + 168  [0x1a01965f4]
+        + ! : | 7 flockfile  (in libsystem_c.dylib) + 44  [0x1a004278c]
+        + ! : | + 7 __error  (in libsystem_kernel.dylib) + 0  [0x1a015c8cc]
+        + ! : | 6 flockfile  (in libsystem_c.dylib) + 24  [0x1a0042778]
+        + ! : | + 6 __error  (in libsystem_kernel.dylib) + 0  [0x1a015c8cc]
+        + ! : | 5 _pthread_mutex_lock_init_slow  (in libsystem_pthread.dylib) + 108  [0x1a01966c0]
+        + ! : | 1 flockfile  (in libsystem_c.dylib) + 8  [0x1a0042768]
+        + ! : 3 __vfprintf  (in libsystem_c.dylib) + 11124  [0x1a0037a04]
+        + ! : 2 __xvprintf  (in libsystem_c.dylib) + 400  [0x1a0044620]
+        + ! : 1 __v2printf  (in libsystem_c.dylib) + 256  [0x1a0034c38]
+        + ! 21 fprintf  (in libsystem_c.dylib) + 36,68,...  [0x1a0044400,0x1a0044420,...]
+        + 101 save_grid_to_csv  (in potts) + 244  [0x1001e6fd4]
+        +   46 fputc  (in libsystem_c.dylib) + 120  [0x1a0063e74]
+        +   : 24 funlockfile  (in libsystem_c.dylib) + 40  [0x1a0042938]
+        +   : | 20 _pthread_mutex_firstfit_unlock_slow  (in libsystem_pthread.dylib) + 48,28,...  [0x1a0196c54,0x1a0196c40,...]
+        +   : | 2 _pthread_mutex_unlock_init_slow  (in libsystem_pthread.dylib) + 20,72  [0x1a0196b94,0x1a0196bc8]
+        +   : | 2 pthread_mutex_unlock  (in libsystem_pthread.dylib) + 152  [0x1a0196b48]
+        +   : 11 funlockfile  (in libsystem_c.dylib) + 24  [0x1a0042928]
+        +   : | 11 __error  (in libsystem_kernel.dylib) + 0  [0x1a015c8cc]
+        +   : 8 funlockfile  (in libsystem_c.dylib) + 44  [0x1a004293c]
+        +   : | 7 __error  (in libsystem_kernel.dylib) + 0  [0x1a015c8cc]
+        +   : | 1 DYLD-STUB$$__error  (in libsystem_c.dylib) + 8  [0x1a00aa3a8]
+        +   : 3 _pthread_mutex_unlock_init_slow  (in libsystem_pthread.dylib) + 104,100  [0x1a0196be8,0x1a0196be4]
+        +   45 fputc  (in libsystem_c.dylib) + 36  [0x1a0063e20]
+        +   : 23 flockfile  (in libsystem_c.dylib) + 40  [0x1a0042788]
+        +   : | 19 _pthread_mutex_firstfit_lock_slow  (in libsystem_pthread.dylib) + 40,140,...  [0x1a019698c,0x1a01969f0,...]
+        +   : | 2 _pthread_mutex_lock_init_slow  (in libsystem_pthread.dylib) + 100  [0x1a01966b8]
+        +   : | 2 pthread_mutex_lock  (in libsystem_pthread.dylib) + 168  [0x1a01965f4]
+        +   : 13 flockfile  (in libsystem_c.dylib) + 24  [0x1a0042778]
+        +   : | 13 __error  (in libsystem_kernel.dylib) + 0  [0x1a015c8cc]
+        +   : 7 flockfile  (in libsystem_c.dylib) + 44  [0x1a004278c]
+        +   : | 7 __error  (in libsystem_kernel.dylib) + 0  [0x1a015c8cc]
+        +   : 2 flockfile  (in libsystem_c.dylib) + 8  [0x1a0042768]
+        +   6 fputc  (in libsystem_c.dylib) + 108  [0x1a0063e68]
+        +   : 6 __swbuf  (in libsystem_c.dylib) + 148  [0x1a0063330]
+        +   :   6 __sflush  (in libsystem_c.dylib) + 232  [0x1a0042884]
+        +   :     6 _swrite  (in libsystem_c.dylib) + 108  [0x1a00446dc]
+        +   :       6 __swrite  (in libsystem_c.dylib) + 24  [0x1a00627ac]
+        +   :         6 __write_nocancel  (in libsystem_kernel.dylib) + 8  [0x1a015fdc8]
+        +   3 fputc  (in libsystem_c.dylib) + 88,12  [0x1a0063e54,0x1a0063e08]
+        +   1 DYLD-STUB$$fputc  (in potts) + 4  [0x1001eb78c]
+        392 main  (in potts) + 2016  [0x1001e917c]
+        + 280 save_grid_to_csv  (in potts) + 224  [0x1001e6fc0]
+        + ! 270 fprintf  (in libsystem_c.dylib) + 68  [0x1a0044420]
+        + ! : 186 vfprintf_l  (in libsystem_c.dylib) + 68  [0x1a0044470]
+        + ! : | 69 __vfprintf  (in libsystem_c.dylib) + 632,628,...  [0x1a0035108,0x1a0035104,...]
+        + ! : | 40 __vfprintf  (in libsystem_c.dylib) + 10900  [0x1a0037924]
+        + ! : | + 25 __sfvwrite  (in libsystem_c.dylib) + 244,140,...  [0x1a0037d04,0x1a0037c9c,...]
+        + ! : | + 8 __sfvwrite  (in libsystem_c.dylib) + 428  [0x1a0037dbc]
+        + ! : | + ! 8 __sflush  (in libsystem_c.dylib) + 232  [0x1a0042884]
+        + ! : | + !   8 _swrite  (in libsystem_c.dylib) + 108  [0x1a00446dc]
+        + ! : | + !     8 __swrite  (in libsystem_c.dylib) + 24  [0x1a00627ac]
+        + ! : | + !       8 __write_nocancel  (in libsystem_kernel.dylib) + 8  [0x1a015fdc8]
+        + ! : | + 7 __sfvwrite  (in libsystem_c.dylib) + 288  [0x1a0037d30]
+        + ! : | +   6 _platform_memmove  (in libsystem_platform.dylib) + 460,436,...  [0x1a01ca80c,0x1a01ca7f4,...]
+        + ! : | +   1 DYLD-STUB$$mkdtempat_np  (in libsystem_c.dylib) + 8  [0x1a00aad38]
+        + ! : | 25 __vfprintf  (in libsystem_c.dylib) + 168  [0x1a0034f38]
+        + ! : | + 12 localeconv_l  (in libsystem_c.dylib) + 64  [0x1a0037ab0]
+        + ! : | + ! 10 os_unfair_lock_lock  (in libsystem_platform.dylib) + 4  [0x1a01c7f94]
+        + ! : | + ! 2 DYLD-STUB$$os_unfair_lock_lock  (in libsystem_c.dylib) + 8  [0x1a00aae38]
+        + ! : | + 8 localeconv_l  (in libsystem_c.dylib) + 60,268  [0x1a0037aac,0x1a0037b7c]
+        + ! : | + 5 localeconv_l  (in libsystem_c.dylib) + 320  [0x1a0037bb0]
+        + ! : | +   5 os_unfair_lock_unlock  (in libsystem_platform.dylib) + 0  [0x1a01c7ac0]
+        + ! : | 23 __vfprintf  (in libsystem_c.dylib) + 5116  [0x1a003628c]
+        + ! : | + 23 __ultoa  (in libsystem_c.dylib) + 144,24,...  [0x1a00380a8,0x1a0038030,...]
+        + ! : | 17 __v2printf  (in libsystem_c.dylib) + 204,132,...  [0x1a0034c04,0x1a0034bbc,...]
+        + ! : | 5 __vfprintf  (in libsystem_c.dylib) + 11024  [0x1a00379a0]
+        + ! : | + 4 DYLD-STUB$$free  (in libsystem_c.dylib) + 8  [0x1a00aa9e8]
+        + ! : | + 1 free  (in libsystem_malloc.dylib) + 152  [0x19ffbdcdc]
+        + ! : | 4 __sfvwrite  (in libsystem_c.dylib) + 900,892  [0x1a0037f94,0x1a0037f8c]
+        + ! : | 2 __xvprintf  (in libsystem_c.dylib) + 12  [0x1a004449c]
+        + ! : | 1 localeconv_l  (in libsystem_c.dylib) + 336  [0x1a0037bc0]
+        + ! : 46 vfprintf_l  (in libsystem_c.dylib) + 80  [0x1a004447c]
+        + ! : | 21 funlockfile  (in libsystem_c.dylib) + 40  [0x1a0042938]
+        + ! : | + 21 _pthread_mutex_firstfit_unlock_slow  (in libsystem_pthread.dylib) + 48,28,...  [0x1a0196c54,0x1a0196c40,...]
+        + ! : | 14 funlockfile  (in libsystem_c.dylib) + 44  [0x1a004293c]
+        + ! : | + 13 __error  (in libsystem_kernel.dylib) + 0  [0x1a015c8cc]
+        + ! : | + 1 DYLD-STUB$$__error  (in libsystem_c.dylib) + 8  [0x1a00aa3a8]
+        + ! : | 10 funlockfile  (in libsystem_c.dylib) + 24  [0x1a0042928]
+        + ! : | + 7 __error  (in libsystem_kernel.dylib) + 0  [0x1a015c8cc]
+        + ! : | + 3 DYLD-STUB$$__error  (in libsystem_c.dylib) + 8  [0x1a00aa3a8]
+        + ! : | 1 _pthread_mutex_unlock_init_slow  (in libsystem_pthread.dylib) + 104  [0x1a0196be8]
+        + ! : 32 vfprintf_l  (in libsystem_c.dylib) + 40  [0x1a0044454]
+        + ! : | 20 flockfile  (in libsystem_c.dylib) + 40  [0x1a0042788]
+        + ! : | + 18 _pthread_mutex_firstfit_lock_slow  (in libsystem_pthread.dylib) + 40,140,...  [0x1a019698c,0x1a01969f0,...]
+        + ! : | + 1 _pthread_mutex_lock_init_slow  (in libsystem_pthread.dylib) + 76  [0x1a01966a0]
+        + ! : | + 1 pthread_mutex_lock  (in libsystem_pthread.dylib) + 168  [0x1a01965f4]
+        + ! : | 6 flockfile  (in libsystem_c.dylib) + 44  [0x1a004278c]
+        + ! : | + 6 __error  (in libsystem_kernel.dylib) + 0  [0x1a015c8cc]
+        + ! : | 3 _pthread_mutex_lock_init_slow  (in libsystem_pthread.dylib) + 108  [0x1a01966c0]
+        + ! : | 3 flockfile  (in libsystem_c.dylib) + 24  [0x1a0042778]
+        + ! : |   2 __error  (in libsystem_kernel.dylib) + 0  [0x1a015c8cc]
+        + ! : |   1 DYLD-STUB$$__error  (in libsystem_c.dylib) + 0  [0x1a00aa3a0]
+        + ! : 3 __vfprintf  (in libsystem_c.dylib) + 11124  [0x1a0037a04]
+        + ! : 2 __xvprintf  (in libsystem_c.dylib) + 400  [0x1a0044620]
+        + ! : 1 __v2printf  (in libsystem_c.dylib) + 256  [0x1a0034c38]
+        + ! 10 fprintf  (in libsystem_c.dylib) + 36,24,...  [0x1a0044400,0x1a00443f4,...]
+        + 111 save_grid_to_csv  (in potts) + 244  [0x1001e6fd4]
+        + ! 63 fputc  (in libsystem_c.dylib) + 120  [0x1a0063e74]
+        + ! : 35 funlockfile  (in libsystem_c.dylib) + 40  [0x1a0042938]
+        + ! : | 27 _pthread_mutex_firstfit_unlock_slow  (in libsystem_pthread.dylib) + 48,28,...  [0x1a0196c54,0x1a0196c40,...]
+        + ! : | 6 _pthread_mutex_unlock_init_slow  (in libsystem_pthread.dylib) + 20,84  [0x1a0196b94,0x1a0196bd4]
+        + ! : | 2 pthread_mutex_unlock  (in libsystem_pthread.dylib) + 152  [0x1a0196b48]
+        + ! : 15 funlockfile  (in libsystem_c.dylib) + 44  [0x1a004293c]
+        + ! : | 14 __error  (in libsystem_kernel.dylib) + 0  [0x1a015c8cc]
+        + ! : | 1 DYLD-STUB$$__error  (in libsystem_c.dylib) + 8  [0x1a00aa3a8]
+        + ! : 12 funlockfile  (in libsystem_c.dylib) + 24  [0x1a0042928]
+        + ! : | 12 __error  (in libsystem_kernel.dylib) + 0  [0x1a015c8cc]
+        + ! : 1 _pthread_mutex_unlock_init_slow  (in libsystem_pthread.dylib) + 100  [0x1a0196be4]
+        + ! 37 fputc  (in libsystem_c.dylib) + 36  [0x1a0063e20]
+        + ! : 16 flockfile  (in libsystem_c.dylib) + 40  [0x1a0042788]
+        + ! : | 15 _pthread_mutex_firstfit_lock_slow  (in libsystem_pthread.dylib) + 40,316  [0x1a019698c,0x1a0196aa0]
+        + ! : | 1 _pthread_mutex_lock_init_slow  (in libsystem_pthread.dylib) + 104  [0x1a01966bc]
+        + ! : 12 flockfile  (in libsystem_c.dylib) + 24  [0x1a0042778]
+        + ! : | 9 __error  (in libsystem_kernel.dylib) + 0  [0x1a015c8cc]
+        + ! : | 3 DYLD-STUB$$__error  (in libsystem_c.dylib) + 8  [0x1a00aa3a8]
+        + ! : 8 flockfile  (in libsystem_c.dylib) + 44  [0x1a004278c]
+        + ! : | 8 __error  (in libsystem_kernel.dylib) + 0  [0x1a015c8cc]
+        + ! : 1 flockfile  (in libsystem_c.dylib) + 8  [0x1a0042768]
+        + ! 6 fputc  (in libsystem_c.dylib) + 108  [0x1a0063e68]
+        + ! : 6 __swbuf  (in libsystem_c.dylib) + 148  [0x1a0063330]
+        + ! :   6 __sflush  (in libsystem_c.dylib) + 232  [0x1a0042884]
+        + ! :     6 _swrite  (in libsystem_c.dylib) + 108  [0x1a00446dc]
+        + ! :       6 __swrite  (in libsystem_c.dylib) + 24  [0x1a00627ac]
+        + ! :         6 __write_nocancel  (in libsystem_kernel.dylib) + 8  [0x1a015fdc8]
+        + ! 4 fputc  (in libsystem_c.dylib) + 12,88  [0x1a0063e08,0x1a0063e54]
+        + ! 1 DYLD-STUB$$fputc  (in potts) + 4  [0x1001eb78c]
+        + 1 save_grid_to_csv  (in potts) + 244  [0x1001e6fd4]
+        95 main  (in potts) + 1816  [0x1001e90b4]
+        + 26 update_flip_rates_for_affected_sites  (in potts) + 580  [0x1001ea9c4]
+        + ! 4 get_energy_and_Eo  (in potts) + 508  [0x1001e7344]
+        + ! : 3 compute_local_energy  (in potts) + 56,208,...  [0x1001e862c,0x1001e86c4,...]
+        + ! : 1 get_energy_and_Eo  (in potts) + 564  [0x1001e737c]
+        + ! 3 get_energy_and_Eo  (in potts) + 1060  [0x1001e756c]
+        + ! : 2 get_energy_and_Eo  (in potts) + 1096  [0x1001e7590]
+        + ! : 1 compute_local_energy  (in potts) + 448  [0x1001e87b4]
+        + ! 2 get_energy_and_Eo  (in potts) + 388  [0x1001e72cc]
+        + ! : 2 compute_local_energy  (in potts) + 56,264  [0x1001e862c,0x1001e86fc]
+        + ! 2 get_energy_and_Eo  (in potts) + 692  [0x1001e73fc]
+        + ! : 2 compute_local_energy  (in potts) + 56,208  [0x1001e862c,0x1001e86c4]
+        + ! 2 get_energy_and_Eo  (in potts) + 1280  [0x1001e7648]
+        + ! : 2 update_boundary_site  (in potts) + 92,108  [0x1001eb200,0x1001eb210]
+        + ! 2 get_energy_and_Eo  (in potts) + 1456  [0x1001e76f8]
+        + ! : 2 compute_local_energy  (in potts) + 208,448  [0x1001e86c4,0x1001e87b4]
+        + ! 2 get_energy_and_Eo  (in potts) + 1516  [0x1001e7734]
+        + ! : 2 compute_local_energy  (in potts) + 32,56  [0x1001e8614,0x1001e862c]
+        + ! 2 get_energy_and_Eo  (in potts) + 1580  [0x1001e7774]
+        + ! : 2 compute_local_energy  (in potts) + 56,448  [0x1001e862c,0x1001e87b4]
+        + ! 1 get_energy_and_Eo  (in potts) + 448  [0x1001e7308]
+        + ! : 1 compute_local_energy  (in potts) + 208  [0x1001e86c4]
+        + ! 1 get_energy_and_Eo  (in potts) + 876  [0x1001e74b4]
+        + ! : 1 compute_local_energy  (in potts) + 448  [0x1001e87b4]
+        + ! 1 get_energy_and_Eo  (in potts) + 1396  [0x1001e76bc]
+        + ! : 1 compute_local_energy  (in potts) + 56  [0x1001e862c]
+        + ! 1 get_energy_and_Eo  (in potts) + 1824  [0x1001e7868]
+        + ! : 1 compute_local_energy  (in potts) + 172  [0x1001e86a0]
+        + ! 1 get_energy_and_Eo  (in potts) + 1944  [0x1001e78e0]
+        + ! : 1 compute_local_energy  (in potts) + 448  [0x1001e87b4]
+        + ! 1 get_energy_and_Eo  (in potts) + 2068  [0x1001e795c]
+        + ! : 1 compute_local_energy  (in potts) + 308  [0x1001e8728]
+        + ! 1 get_energy_and_Eo  (in potts) + 2128  [0x1001e7998]
+        + !   1 update_boundary_site  (in potts) + 392  [0x1001eb32c]
+        + 15 update_flip_rates_for_affected_sites  (in potts) + 1116  [0x1001eabdc]
+        + ! 2 get_energy_and_Eo  (in potts) + 568  [0x1001e7380]
+        + ! : 2 compute_local_energy  (in potts) + 56,208  [0x1001e862c,0x1001e86c4]
+        + ! 2 get_energy_and_Eo  (in potts) + 1280  [0x1001e7648]
+        + ! : 2 update_boundary_site  (in potts) + 600,1168  [0x1001eb3fc,0x1001eb634]
+        + ! 1 get_energy_and_Eo  (in potts) + 388  [0x1001e72cc]
+        + ! : 1 compute_local_energy  (in potts) + 56  [0x1001e862c]
+        + ! 1 get_energy_and_Eo  (in potts) + 692  [0x1001e73fc]
+        + ! : 1 compute_local_energy  (in potts) + 208  [0x1001e86c4]
+        + ! 1 get_energy_and_Eo  (in potts) + 876  [0x1001e74b4]
+        + ! : 1 get_energy_and_Eo  (in potts) + 924  [0x1001e74e4]
+        + ! 1 get_energy_and_Eo  (in potts) + 996  [0x1001e752c]
+        + ! : 1 compute_local_energy  (in potts) + 448  [0x1001e87b4]
+        + ! 1 get_energy_and_Eo  (in potts) + 1336  [0x1001e7680]
+        + ! : 1 compute_local_energy  (in potts) + 56  [0x1001e862c]
+        + ! 1 get_energy_and_Eo  (in potts) + 1516  [0x1001e7734]
+        + ! : 1 compute_local_energy  (in potts) + 32  [0x1001e8614]
+        + ! 1 get_energy_and_Eo  (in potts) + 1764  [0x1001e782c]
+        + ! : 1 compute_local_energy  (in potts) + 448  [0x1001e87b4]
+        + ! 1 get_energy_and_Eo  (in potts) + 1824  [0x1001e7868]
+        + ! : 1 compute_local_energy  (in potts) + 172  [0x1001e86a0]
+        + ! 1 get_energy_and_Eo  (in potts) + 1884  [0x1001e78a4]
+        + ! : 1 compute_local_energy  (in potts) + 452  [0x1001e87b8]
+        + ! 1 get_energy_and_Eo  (in potts) + 2008  [0x1001e7920]
+        + ! : 1 compute_local_energy  (in potts) + 468  [0x1001e87c8]
+        + ! 1 get_energy_and_Eo  (in potts) + 2128  [0x1001e7998]
+        + !   1 update_boundary_site  (in potts) + 1056  [0x1001eb5c4]
+        + 14 update_flip_rates_for_affected_sites  (in potts) + 940  [0x1001eab2c]
+        + ! 3 get_energy_and_Eo  (in potts) + 1280  [0x1001e7648]
+        + ! : 3 update_boundary_site  (in potts) + 216,724,...  [0x1001eb27c,0x1001eb478,...]
+        + ! 3 get_energy_and_Eo  (in potts) + 2128  [0x1001e7998]
+        + ! : 3 update_boundary_site  (in potts) + 680,712,...  [0x1001eb44c,0x1001eb46c,...]
+        + ! 2 get_energy_and_Eo  (in potts) + 632  [0x1001e73c0]
+        + ! : 2 compute_local_energy  (in potts) + 32,448  [0x1001e8614,0x1001e87b4]
+        + ! 1 get_energy_and_Eo  (in potts) + 156  [0x1001e71e4]
+        + ! : 1 _platform_strcmp  (in libsystem_platform.dylib) + 12  [0x1a01c7b3c]
+        + ! 1 get_energy_and_Eo  (in potts) + 752  [0x1001e7438]
+        + ! : 1 compute_local_energy  (in potts) + 264  [0x1001e86fc]
+        + ! 1 get_energy_and_Eo  (in potts) + 936  [0x1001e74f0]
+        + ! : 1 compute_local_energy  (in potts) + 476  [0x1001e87d0]
+        + ! 1 get_energy_and_Eo  (in potts) + 1640  [0x1001e77b0]
+        + ! : 1 compute_local_energy  (in potts) + 108  [0x1001e8660]
+        + ! 1 get_energy_and_Eo  (in potts) + 1700  [0x1001e77ec]
+        + ! : 1 compute_local_energy  (in potts) + 56  [0x1001e862c]
+        + ! 1 update_flip_rates_for_affected_sites  (in potts) + 940  [0x1001eab2c]
+        + !   1 get_energy_and_Eo  (in potts) + 136  [0x1001e71d0]
+        + 14 update_flip_rates_for_affected_sites  (in potts) + 1288  [0x1001eac88]
+        + ! 3 get_energy_and_Eo  (in potts) + 1280  [0x1001e7648]
+        + ! : 3 update_boundary_site  (in potts) + 192,812,...  [0x1001eb264,0x1001eb4d0,...]
+        + ! 2 get_energy_and_Eo  (in potts) + 1124  [0x1001e75ac]
+        + ! : 1 compute_local_energy  (in potts) + 32  [0x1001e8614]
+        + ! : 1 get_energy_and_Eo  (in potts) + 1208  [0x1001e7600]
+        + ! 1 get_energy_and_Eo  (in potts) + 388  [0x1001e72cc]
+        + ! : 1 compute_local_energy  (in potts) + 208  [0x1001e86c4]
+        + ! 1 get_energy_and_Eo  (in potts) + 692  [0x1001e73fc]
+        + ! : 1 compute_local_energy  (in potts) + 32  [0x1001e8614]
+        + ! 1 get_energy_and_Eo  (in potts) + 936  [0x1001e74f0]
+        + ! : 1 compute_local_energy  (in potts) + 32  [0x1001e8614]
+        + ! 1 get_energy_and_Eo  (in potts) + 1336  [0x1001e7680]
+        + ! : 1 compute_local_energy  (in potts) + 28  [0x1001e8610]
+        + ! 1 get_energy_and_Eo  (in potts) + 1396  [0x1001e76bc]
+        + ! : 1 compute_local_energy  (in potts) + 208  [0x1001e86c4]
+        + ! 1 get_energy_and_Eo  (in potts) + 1456  [0x1001e76f8]
+        + ! : 1 compute_local_energy  (in potts) + 56  [0x1001e862c]
+        + ! 1 get_energy_and_Eo  (in potts) + 1516  [0x1001e7734]
+        + ! : 1 compute_local_energy  (in potts) + 392  [0x1001e877c]
+        + ! 1 get_energy_and_Eo  (in potts) + 1640  [0x1001e77b0]
+        + ! : 1 compute_local_energy  (in potts) + 108  [0x1001e8660]
+        + ! 1 get_energy_and_Eo  (in potts) + 1944  [0x1001e78e0]
+        + !   1 compute_local_energy  (in potts) + 32  [0x1001e8614]
+        + 13 update_flip_rates_for_affected_sites  (in potts) + 764  [0x1001eaa7c]
+        + ! 2 get_energy_and_Eo  (in potts) + 388  [0x1001e72cc]
+        + ! : 1 compute_local_energy  (in potts) + 392  [0x1001e877c]
+        + ! : 1 get_energy_and_Eo  (in potts) + 444  [0x1001e7304]
+        + ! 2 get_energy_and_Eo  (in potts) + 2128  [0x1001e7998]
+        + ! : 2 update_boundary_site  (in potts) + 92,144  [0x1001eb200,0x1001eb234]
+        + ! 1 get_energy_and_Eo  (in potts) + 508  [0x1001e7344]
+        + ! : 1 compute_local_energy  (in potts) + 264  [0x1001e86fc]
+        + ! 1 get_energy_and_Eo  (in potts) + 936  [0x1001e74f0]
+        + ! : 1 get_energy_and_Eo  (in potts) + 940  [0x1001e74f4]
+        + ! 1 get_energy_and_Eo  (in potts) + 1124  [0x1001e75ac]
+        + ! : 1 compute_local_energy  (in potts) + 160  [0x1001e8694]
+        + ! 1 get_energy_and_Eo  (in potts) + 1280  [0x1001e7648]
+        + ! : 1 update_boundary_site  (in potts) + 144  [0x1001eb234]
+        + ! 1 get_energy_and_Eo  (in potts) + 1336  [0x1001e7680]
+        + ! : 1 compute_local_energy  (in potts) + 56  [0x1001e862c]
+        + ! 1 get_energy_and_Eo  (in potts) + 1580  [0x1001e7774]
+        + ! : 1 get_energy_and_Eo  (in potts) + 1636  [0x1001e77ac]
+        + ! 1 get_energy_and_Eo  (in potts) + 1884  [0x1001e78a4]
+        + ! : 1 compute_local_energy  (in potts) + 264  [0x1001e86fc]
+        + ! 1 get_energy_and_Eo  (in potts) + 2008  [0x1001e7920]
+        + ! : 1 compute_local_energy  (in potts) + 108  [0x1001e8660]
+        + ! 1 get_energy_and_Eo  (in potts) + 2068  [0x1001e795c]
+        + !   1 get_energy_and_Eo  (in potts) + 2116  [0x1001e798c]
+        + 12 update_flip_rates_for_affected_sites  (in potts) + 304  [0x1001ea8b0]
+        + ! 3 get_energy_and_Eo  (in potts) + 1280  [0x1001e7648]
+        + ! : 3 update_boundary_site  (in potts) + 344,776,...  [0x1001eb2fc,0x1001eb4ac,...]
+        + ! 2 get_energy_and_Eo  (in potts) + 692  [0x1001e73fc]
+        + ! : 2 compute_local_energy  (in potts) + 56,476  [0x1001e862c,0x1001e87d0]
+        + ! 2 get_energy_and_Eo  (in potts) + 1824  [0x1001e7868]
+        + ! : 2 compute_local_energy  (in potts) + 32,108  [0x1001e8614,0x1001e8660]
+        + ! 1 get_energy_and_Eo  (in potts) + 156  [0x1001e71e4]
+        + ! : 1 DYLD-STUB$$strcmp  (in potts) + 4  [0x1001eb84c]
+        + ! 1 get_energy_and_Eo  (in potts) + 508  [0x1001e7344]
+        + ! : 1 compute_local_energy  (in potts) + 84  [0x1001e8648]
+        + ! 1 get_energy_and_Eo  (in potts) + 752  [0x1001e7438]
+        + ! : 1 compute_local_energy  (in potts) + 28  [0x1001e8610]
+        + ! 1 get_energy_and_Eo  (in potts) + 1124  [0x1001e75ac]
+        + ! : 1 get_energy_and_Eo  (in potts) + 1236  [0x1001e761c]
+        + ! 1 get_energy_and_Eo  (in potts) + 2224  [0x1001e79f8]
+        + 1 update_flip_rates_for_affected_sites  (in potts) + 948  [0x1001eab34]
+        +   1 get_transition_probability  (in potts) + 104  [0x1001e81a8]
+        +     1 exp  (in libsystem_m.dylib) + 212  [0x1aba8ef54]
+        5 main  (in potts) + 1908  [0x1001e9110]
+        + 3 update_swap_rates_for_affected_sites  (in potts) + 500  [0x1001eaf34]
+        + ! 2 get_energy_and_Eo  (in potts) + 3764  [0x1001e7ffc]
+        + ! : 2 compute_local_energy  (in potts) + 176,448  [0x1001e86a4,0x1001e87b4]
+        + ! 1 get_energy_and_Eo  (in potts) + 3932  [0x1001e80a4]
+        + !   1 compute_local_energy  (in potts) + 448  [0x1001e87b4]
+        + 1 update_swap_rates_for_affected_sites  (in potts) + 192  [0x1001eae00]
+        + ! 1 update_swap_rates_for_affected_sites  (in potts) + 924  [0x1001eb0dc]
+        + 1 update_swap_rates_for_affected_sites  (in potts) + 864  [0x1001eb0a0]
+        +   1 get_energy_and_Eo  (in potts) + 3932  [0x1001e80a4]
+        +     1 compute_local_energy  (in potts) + 56  [0x1001e862c]
+        3 main  (in potts) + 1672  [0x1001e9024]
+        + 3 update_boundary_site  (in potts) + 0,116,...  [0x1001eb1a4,0x1001eb218,...]
+        2 main  (in potts) + 1472  [0x1001e8f5c]
+        + 2 rand  (in libsystem_c.dylib) + 0  [0x1a004294c]
+        1 main  (in potts) + 1084  [0x1001e8dd8]
+        + 1 log  (in libsystem_m.dylib) + 128  [0x1aba8ed08]
+        1 main  (in potts) + 1700  [0x1001e9040]
+        + 1 log  (in libsystem_m.dylib) + 188  [0x1aba8ed44]
+        1 main  (in potts) + 2120  [0x1001e91e4]
+        + 1 _szone_free  (in libsystem_malloc.dylib) + 720  [0x19ffd267c]
+        +   1 free_large  (in libsystem_malloc.dylib) + 416  [0x19ffc84ec]
+        +     1 mvm_deallocate_pages  (in libsystem_malloc.dylib) + 144  [0x19ffc9fdc]
+        +       1 mach_vm_deallocate  (in libsystem_kernel.dylib) + 88  [0x1a015d9bc]
+        +         1 _kernelrpc_mach_vm_deallocate_trap  (in libsystem_kernel.dylib) + 8  [0x1a015bd68]
+        1 main  (in potts) + 2128  [0x1001e91ec]
+          1 _szone_free  (in libsystem_malloc.dylib) + 720  [0x19ffd267c]
+            1 free_large  (in libsystem_malloc.dylib) + 776  [0x19ffc8654]
+              1 madvise  (in libsystem_kernel.dylib) + 8  [0x1a015eb7c]
+
+Total number in stack (recursive counted multiple, when >=5):
+        51       compute_local_energy  (in potts) + 0  [0x1001e85f4]
+        16       __error  (in libsystem_kernel.dylib) + 0  [0x1a015c8cc]
+        11       get_energy_and_Eo  (in potts) + 0  [0x1001e7148]
+        11       update_boundary_site  (in potts) + 0  [0x1001eb1a4]
+        7       DYLD-STUB$$__error  (in libsystem_c.dylib) + 0  [0x1a00aa3a0]
+        7       _pthread_mutex_unlock_init_slow  (in libsystem_pthread.dylib) + 0  [0x1a0196b80]
+        6       _pthread_mutex_lock_init_slow  (in libsystem_pthread.dylib) + 0  [0x1a0196654]
+        6       get_energy_and_Eo  (in potts) + 1280  [0x1001e7648]
+
+Sort by top of stack, same collapsed (when >= 5):
+        main  (in potts)        15905
+        __vfprintf  (in libsystem_c.dylib)        144
+        __error  (in libsystem_kernel.dylib)        142
+        _pthread_mutex_firstfit_unlock_slow  (in libsystem_pthread.dylib)        88
+        _pthread_mutex_firstfit_lock_slow  (in libsystem_pthread.dylib)        70
+        compute_local_energy  (in potts)        63
+        __sfvwrite  (in libsystem_c.dylib)        48
+        __ultoa  (in libsystem_c.dylib)        42
+        __v2printf  (in libsystem_c.dylib)        40
+        fprintf  (in libsystem_c.dylib)        31
+        __write_nocancel  (in libsystem_kernel.dylib)        28
+        update_boundary_site  (in potts)        24
+        os_unfair_lock_lock  (in libsystem_platform.dylib)        23
+        _pthread_mutex_lock_init_slow  (in libsystem_pthread.dylib)        15
+        _pthread_mutex_unlock_init_slow  (in libsystem_pthread.dylib)        15
+        localeconv_l  (in libsystem_c.dylib)        14
+        os_unfair_lock_unlock  (in libsystem_platform.dylib)        13
+        DYLD-STUB$$__error  (in libsystem_c.dylib)        12
+        get_energy_and_Eo  (in potts)        12
+        _platform_memmove  (in libsystem_platform.dylib)        10
+        DYLD-STUB$$free  (in libsystem_c.dylib)        7
+        __xvprintf  (in libsystem_c.dylib)        7
+        fputc  (in libsystem_c.dylib)        7
+        pthread_mutex_lock  (in libsystem_pthread.dylib)        6
+        pthread_mutex_unlock  (in libsystem_pthread.dylib)        5
+
+Binary Images:
+       0x1001e4000 -        0x1001ebff7 +potts (0) <B997DD26-1378-32C0-97F3-D17C2E45CCD8> /Users/*/Documents/*/potts
+       0x19fdf8000 -        0x19fe3dedf  libobjc.A.dylib (876.2) <89F215E2-0CBD-3A9B-9E0C-9218F7F434A6> /usr/lib/libobjc.A.dylib
+       0x19fe3e000 -        0x19feccd13  dyld (1.0.0 - 1068) <BFFA4E04-BE1B-3D76-891F-F501DFB9EE8B> /usr/lib/dyld
+       0x19fecd000 -        0x19fed1ffc  libsystem_blocks.dylib (87) <B200B53A-D8FF-3C41-A830-7529E9A348D0> /usr/lib/system/libsystem_blocks.dylib
+       0x19fed2000 -        0x19ff15fff  libxpc.dylib (2462.141.1.704.3) <A6BC7021-AB9C-3261-B43A-AB9B1AD0DAD7> /usr/lib/system/libxpc.dylib
+       0x19ff16000 -        0x19ff30fff  libsystem_trace.dylib (1431.140.4) <D023B5EC-98BF-3CB8-BBE0-7370F798E0B5> /usr/lib/system/libsystem_trace.dylib
+       0x19ff31000 -        0x19ffbbfe7  libcorecrypto.dylib (1387.140.3.700.1) <A69F3B02-C304-390E-8D64-CFDB30E9E49B> /usr/lib/system/libcorecrypto.dylib
+       0x19ffbc000 -        0x19ffe7ffb  libsystem_malloc.dylib (425.100.7) <01961BBC-5BA4-31C2-B07C-79360AAB0A8D> /usr/lib/system/libsystem_malloc.dylib
+       0x19ffe8000 -        0x1a002ffff  libdispatch.dylib (1415.140.2) <D9D62056-1AF0-3D72-B951-F1FF84ABECCA> /usr/lib/system/libdispatch.dylib
+       0x1a0030000 -        0x1a0032ffb  libsystem_featureflags.dylib (74) <88390EA4-6D0B-346A-828B-2819269953D0> /usr/lib/system/libsystem_featureflags.dylib
+       0x1a0033000 -        0x1a00b1ff7  libsystem_c.dylib (1534.100.14.700.1) <D76DF494-DE63-350C-9D1B-25581159A9B1> /usr/lib/system/libsystem_c.dylib
+       0x1a00b2000 -        0x1a013eff7  libc++.1.dylib (1500.65) <A1240FFC-A95A-3824-B47D-FB1EF6E55B9B> /usr/lib/libc++.1.dylib
+       0x1a013f000 -        0x1a015afff  libc++abi.dylib (1500.65) <2E7EFB48-E600-37ED-ADFD-1E883DFD428B> /usr/lib/libc++abi.dylib
+       0x1a015b000 -        0x1a0194ff7  libsystem_kernel.dylib (8796.141.3.709.7) <80B55A53-F2F1-3F29-9292-41845B7E9DC6> /usr/lib/system/libsystem_kernel.dylib
+       0x1a0195000 -        0x1a01a1fff  libsystem_pthread.dylib (514.100.2) <E74E3DB0-F8CB-34AB-831E-DB30CBEC154F> /usr/lib/system/libsystem_pthread.dylib
+       0x1a01a2000 -        0x1a01c6fff  libdyld.dylib (1068) <72E11D74-2306-3A02-89CF-1A39856EA9CC> /usr/lib/system/libdyld.dylib
+       0x1a01c7000 -        0x1a01cdffb  libsystem_platform.dylib (292.120.1.0.1) <26B1286A-70DC-3E34-99D0-73D26257DE71> /usr/lib/system/libsystem_platform.dylib
+       0x1a01ce000 -        0x1a01faffb  libsystem_info.dylib (564.120.2) <D5AB0734-61C7-3076-92FD-56A63CCA77FA> /usr/lib/system/libsystem_info.dylib
+       0x1a2f9a000 -        0x1a2fa4fff  libsystem_darwin.dylib (1534.100.14.700.1) <6E877F91-EE71-3153-BF83-3B794BA5ED23> /usr/lib/system/libsystem_darwin.dylib
+       0x1a3405000 -        0x1a3415fff  libsystem_notify.dylib (312.140.2.700.1) <45302B1B-EF64-37FD-A16A-AD83D30B2320> /usr/lib/system/libsystem_notify.dylib
+       0x1a4dd3000 -        0x1a4debfff  libsystem_networkextension.dylib (1608.140.5.702.1) <313B4E44-8014-3E96-A1F6-487570EC8FE3> /usr/lib/system/libsystem_networkextension.dylib
+       0x1a4e55000 -        0x1a4e6cffb  libsystem_asl.dylib (395) <43158526-D04B-33C1-9DCF-7CBAA16AA677> /usr/lib/system/libsystem_asl.dylib
+       0x1a661f000 -        0x1a6627ff3  libsystem_symptoms.dylib (1732.140.3) <42D9DCE5-28A8-35AE-A879-5C008A15B9DD> /usr/lib/system/libsystem_symptoms.dylib
+       0x1a959f000 -        0x1a95d0fff  libsystem_containermanager.dylib (477.140.2.700.2) <949DCF9C-1126-3D59-8442-7427081858AB> /usr/lib/system/libsystem_containermanager.dylib
+       0x1aa50a000 -        0x1aa50efff  libsystem_configuration.dylib (1241.140.6) <EB6CD1D4-3864-3CB0-9D88-3D90402BA4B3> /usr/lib/system/libsystem_configuration.dylib
+       0x1aa50f000 -        0x1aa514ff3  libsystem_sandbox.dylib (1846.140.7.705.1) <417FF0B1-E654-30C1-A875-B6056EE0FF9B> /usr/lib/system/libsystem_sandbox.dylib
+       0x1ab0ca000 -        0x1ab0ccfff  libquarantine.dylib (147.120.3.700.1) <73A29CC9-DD81-37FF-8D27-E07BA95AAC5F> /usr/lib/system/libquarantine.dylib
+       0x1ab7b9000 -        0x1ab7befff  libsystem_coreservices.dylib (144) <78BB9AF3-D118-3DDA-B4F4-9DD69E9CC083> /usr/lib/system/libsystem_coreservices.dylib
+       0x1aba8d000 -        0x1abac3feb  libsystem_m.dylib (3226.100.4) <AD7619FF-C622-337A-82F3-0EA0B5DE32A7> /usr/lib/system/libsystem_m.dylib
+       0x1abac5000 -        0x1abacaffb  libmacho.dylib (1005) <3F9FF907-109B-301A-B05B-612952FADD0C> /usr/lib/system/libmacho.dylib
+       0x1abaeb000 -        0x1abaf8fff  libcommonCrypto.dylib (600016.100.4.700.1) <AF11C5CA-EFFA-3892-AF29-207FBACA266D> /usr/lib/system/libcommonCrypto.dylib
+       0x1abaf9000 -        0x1abb03fff  libunwind.dylib (1500.26) <E844E383-52E8-3B20-BE2C-70E66BA1D32A> /usr/lib/system/libunwind.dylib
+       0x1abb04000 -        0x1abb0bffb  liboah.dylib (289.13) <F8138202-2845-33E1-9295-849BE8FACC40> /usr/lib/liboah.dylib
+       0x1abb0c000 -        0x1abb15ff7  libcopyfile.dylib (191.100.3) <14E03036-BDC0-3F84-AA35-F344130FF9B5> /usr/lib/system/libcopyfile.dylib
+       0x1abb16000 -        0x1abb19fff  libcompiler_rt.dylib (103.1) <B8E75D27-E011-389B-9057-00572FF8F330> /usr/lib/system/libcompiler_rt.dylib
+       0x1abb1a000 -        0x1abb1efff  libsystem_collections.dylib (1534.100.14.700.1) <E5FC209F-17C1-3E70-82BF-0E3C0A32821C> /usr/lib/system/libsystem_collections.dylib
+       0x1abb1f000 -        0x1abb21ffb  libsystem_secinit.dylib (120.100.7.700.1) <4A4EA9C9-C4B4-3F4F-8669-D509A7E831AB> /usr/lib/system/libsystem_secinit.dylib
+       0x1abb22000 -        0x1abb24ffb  libremovefile.dylib (68) <9BC4FE5A-945F-3C58-9C39-8A7CF49A395E> /usr/lib/system/libremovefile.dylib
+       0x1abb25000 -        0x1abb25ffb  libkeymgr.dylib (31) <A80E1C2C-43BD-33B2-9877-BD0B91BB97DA> /usr/lib/system/libkeymgr.dylib
+       0x1abb26000 -        0x1abb2efff  libsystem_dnssd.dylib (1807.140.16.703.1) <A983DCB9-2D56-3446-AFBB-8F25B47C6ABA> /usr/lib/system/libsystem_dnssd.dylib
+       0x1abb2f000 -        0x1abb34fff  libcache.dylib (92) <63F23277-83D0-3260-A530-9E6E1AD89AD2> /usr/lib/system/libcache.dylib
+       0x1abb35000 -        0x1abb36fff  libSystem.B.dylib (1319.100.3.703.1) <2A0B767F-4694-3F9F-9452-0A55128CD9FA> /usr/lib/libSystem.B.dylib
